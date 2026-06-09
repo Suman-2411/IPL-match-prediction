@@ -29,3 +29,6 @@ def get_match_data(df):
 df = load_data('IPL.csv')
 matches =get_match_data(df)
 
+#To save match data info
+matches.to_csv('matches_clean.csv',index=False)
+print("Saved matches_clean.csv!")
