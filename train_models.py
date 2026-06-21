@@ -6,11 +6,14 @@ from sklearn.metrics import accuracy_score
 from xgboost import XGBClassifier
 
 from data_loader import load_data, get_match_data
-from preprocessor import preprocess, encode_features, get_features
+from preprocessor import preprocess, encode_features, get_features, add_team_form, add_head_to_head, add_venue_win_rate
 
 df = load_data('IPL.csv')
 df = get_match_data(df)
 df = preprocess(df)
+df = add_team_form(df)
+df = add_head_to_head(df)
+df = add_venue_win_rate(df)
 df, encoders = encode_features(df)
 X, y = get_features(df)
 
